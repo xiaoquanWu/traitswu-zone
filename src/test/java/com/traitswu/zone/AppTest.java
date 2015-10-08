@@ -1,3 +1,5 @@
+package com.traitswu.zone;
+
 import static org.junit.Assert.*;
 
 /**

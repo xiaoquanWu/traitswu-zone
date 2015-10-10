@@ -11,6 +11,7 @@ public class Article extends Domain {
     private byte[] content;
     private List<String> comments;
 
+    private ArticleGroup articleGroup;
     private User user;
 
 
@@ -44,5 +45,13 @@ public class Article extends Domain {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public ArticleGroup getArticleGroup() {
+        return articleGroup;
+    }
+
+    public void setArticleGroup(ArticleGroup articleGroup) {
+        this.articleGroup = articleGroup;
     }
 }

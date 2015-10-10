@@ -2,11 +2,34 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+<hibernate-mapping package="com.traitswu.zone.entity">
 
-    <class name="com.traitswu.zone.entity.Article" table="article">
+
+    <class name="Article" table="article">
         <id name="id" column="id">
             <generator class="native"/>
         </id>
+        <property name="createDate" column="createDate" type="java.util.Date"/>
+        <property name="modifiedDate" column="modifiedDate" type="java.util.Date"/>
+        <property name="title" column="title" type="java.lang.String"/>
+        <property name="content" type="binary" column="content"/>
+
+        <bag name="comments" cascade="save-update" inverse="false" lazy="true">
+            <key column="article_id"></key>
+            <element column="comment" type="java.lang.String"/>
+        </bag>
+
+        <many-to-one name="user" column="user_id" not-null="true" cascade="save-update"/>
+        <many-to-one name="articleGroup" column="article_group_id" cascade="save-update"/>
+    </class>
+
+
+    <class name="ArticleGroup" table="article_group">
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="groupName"/>
+        <property name="createDate" column="createDate" type="java.util.Date"/>
+        <property name="modifiedDate" column="modifiedDate" type="java.util.Date"/>
     </class>
 </hibernate-mapping>

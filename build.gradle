@@ -45,6 +45,10 @@ dependencies {
 
     compile 'mysql:mysql-connector-java:5.1.36'
     compile 'com.google.guava:guava:18.0'
+    compile 'c3p0:c3p0:0.9.1.2'
+    compile 'org.aspectj:aspectjweaver:1.8.7'
+
+
 
     compile([
             'org.slf4j:slf4j-api:1.7.12',

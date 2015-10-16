@@ -20,7 +20,7 @@
         </bag>
 
         <many-to-one name="user" column="user_id" not-null="true" cascade="save-update"/>
-        <many-to-one name="articleGroup" column="article_group_id" cascade="save-update"/>
+        <many-to-one name="articleGroup" column="article_group_id" not-null="true" cascade="save-update"/>
     </class>
 
 
@@ -31,5 +31,10 @@
         <property name="groupName"/>
         <property name="createDate" column="createDate" type="java.util.Date"/>
         <property name="modifiedDate" column="modifiedDate" type="java.util.Date"/>
+
+        <bag name="articles" lazy="true">
+            <key column="article_group_id"/>
+            <one-to-many class="Article"/>
+        </bag>
     </class>
 </hibernate-mapping>

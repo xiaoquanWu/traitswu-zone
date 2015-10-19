@@ -19,13 +19,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete(Integer userId) {
-
+    public void delete(String userName, String password) {
+        User user = userDao.getUser(userName, password);
+        userDao.delete(user);
     }
 
     @Override
     public List<User> list() {
         return userDao.list();
+    }
+
+    @Override
+    public User getUser(String userName, String password) {
+        return this.userDao.getUser(userName, password);
     }
 
 

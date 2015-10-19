@@ -10,7 +10,11 @@ import java.util.List;
 public interface UserService {
 
     void save(User user);
-    void delete(Integer userId);
+
+    void delete(String userName, String password);
+
     List<User> list();
+
+    User getUser(String userName, String password);
 
 }

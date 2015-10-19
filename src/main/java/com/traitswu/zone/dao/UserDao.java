@@ -7,5 +7,6 @@ import com.traitswu.zone.entity.User;
  */
 public interface UserDao extends BaseDao<User> {
 
+    User getUser(String userName, String password);
 
 }

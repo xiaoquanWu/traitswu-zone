@@ -9,15 +9,15 @@
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
-        <property name="createDate" generated="insert" not-null="true" type="java.util.Date">
-            <column name="createDate" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
-        </property>
-        <property name="modifiedDate" generated="always" not-null="true" type="java.util.Date">
-            <column name="modifiedDate" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>
-        </property>
+        <!--<property name="createDate" generated="insert" not-null="true" type="java.util.Date">-->
+            <!--<column name="createDate" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>-->
+        <!--</property>-->
+        <!--<property name="modifiedDate" generated="always" not-null="true" type="java.util.Date">-->
+            <!--<column name="modifiedDate" sql-type="timestamp" default="CURRENT_TIMESTAMP"/>-->
+        <!--</property>-->
 
-        <!--<property name="createDate" type="java.util.Date"/>-->
-        <!--<property name="modifiedDate" type="java.util.Date"/>-->
+        <property name="createDate" type="java.util.Date"/>
+        <property name="modifiedDate" type="java.util.Date"/>
 
         <property name="userName" type="string" not-null="true" length="50" unique-key="account_unique"/>
         <property name="passWord" type="string" not-null="true" length="50" unique-key="account_unique"/>

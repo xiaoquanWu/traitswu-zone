@@ -9,6 +9,8 @@ import com.traitswu.zone.support.TestSupport;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,11 +24,11 @@ public class ArticleServiceImplTest extends TestSupport {
     @Test
     public void testSave() throws Exception {
         User user = new User();
-        user.setUserName("TTTTTTTTTTTT");
-        user.setPassWord("PPPPPPPPPPPPP");
+        user.setUserName("U1");
+        user.setPassWord("P1");
 
         ArticleGroup articleGroup = new ArticleGroup();
-        articleGroup.setGroupName("GGGGGGGGGGGGGGGGGG");
+        articleGroup.setGroupName("G2");
 
         Article article = new Article();
         article.setUser(user);
@@ -42,5 +44,28 @@ public class ArticleServiceImplTest extends TestSupport {
     @Test
     public void testDelete() throws Exception {
 
+        articleService.delete(1);
+
+    }
+
+    @Test
+    public void testDeleteByGroup(){
+        articleService.deleteByGroup("G2");
+    }
+
+    @Test
+    public void testQuery() {
+        Article article = articleService.getArticle(2, true);
+        System.out.println(article.getTitle());
+        System.out.println(article.getComments());
+    }
+
+    @Test
+    public void testListByGroup() {
+        List<Article> articles = articleService.list("G2");
+        System.out.println(articles.size());
+        for (Article article : articles) {
+            System.out.println(article.getComments());
+        }
     }
 }

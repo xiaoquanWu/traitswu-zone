@@ -21,8 +21,8 @@ public class UserServiceImplTest extends TestSupport {
     @Test
     public void testSave() {
         User user = new User();
-        user.setUserName("user" + new Random().nextInt(111));
-        user.setPassWord("password" + new Random().nextInt(111));
+        user.setUserName("U1");
+        user.setPassWord("P1");
         userService.save(user);
     }
 
@@ -30,6 +30,12 @@ public class UserServiceImplTest extends TestSupport {
     public void testList() {
         List<User> list = userService.list();
         System.out.println(list.size());
+    }
+
+    @Test
+    public void testGetUser() {
+        User user = userService.getUser("U1", "P1");
+        System.out.println(user.getUserName());
     }
 
 }

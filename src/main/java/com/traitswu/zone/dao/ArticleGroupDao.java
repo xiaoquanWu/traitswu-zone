@@ -7,6 +7,8 @@ import com.traitswu.zone.entity.ArticleGroup;
  */
 public interface ArticleGroupDao extends BaseDao<ArticleGroup> {
 
-     ArticleGroup get(String groupName);
+    ArticleGroup get(String groupName);
+
+    Integer delete(String groupName);
 
 }

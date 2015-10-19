@@ -47,6 +47,7 @@ public class Article extends Domain {
         this.user = user;
     }
 
+
     public ArticleGroup getArticleGroup() {
         return articleGroup;
     }

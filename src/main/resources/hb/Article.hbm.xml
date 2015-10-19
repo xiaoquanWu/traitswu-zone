@@ -14,7 +14,7 @@
         <property name="title" column="title" type="java.lang.String"/>
         <property name="content" type="binary" column="content"/>
 
-        <bag name="comments" cascade="save-update" inverse="false" lazy="true">
+        <bag name="comments" lazy="true">
             <key column="article_id"></key>
             <element column="comment" type="java.lang.String"/>
         </bag>
@@ -28,12 +28,12 @@
         <id name="id" column="id">
             <generator class="native"/>
         </id>
-        <property name="groupName"/>
+        <property name="groupName" unique="true"/>
         <property name="createDate" column="createDate" type="java.util.Date"/>
         <property name="modifiedDate" column="modifiedDate" type="java.util.Date"/>
 
-        <bag name="articles" lazy="true">
-            <key column="article_group_id"/>
+        <bag name="articles" lazy="true" inverse="true">
+            <key column="article_group_id" not-null="true"/>
             <one-to-many class="Article"/>
         </bag>
     </class>

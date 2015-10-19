@@ -27,5 +27,13 @@
     <bean id="articleDao" class="com.traitswu.zone.dao.impl.ArticleDaoImpl" parent="baseDao"></bean>
     <bean id="articleService" class="com.traitswu.zone.service.impl.ArticleServiceImpl">
         <property name="articleDao" ref="articleDao"/>
+        <property name="userDao" ref="useDao"/>
+        <property name="articleGroupService" ref="articleGroupService"/>
+    </bean>
+
+    <bean id="articleGroupDao" class="com.traitswu.zone.dao.impl.ArticleGroupDaoImpl" parent="baseDao"></bean>
+    <bean id="articleGroupService" class="com.traitswu.zone.service.impl.ArticleGroupServiceImpl">
+        <property name="articleGroupDao" ref="articleGroupDao"/>
+        <property name="articleDao" ref="articleDao"/>
     </bean>
 </beans>

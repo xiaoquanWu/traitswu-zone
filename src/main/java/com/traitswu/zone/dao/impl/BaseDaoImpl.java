@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -44,6 +45,17 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
         Criteria criteria = getSession().createCriteria(getClz());
         return (List<T>)criteria.list();
     }
+
+    @Override
+    public T load(Serializable id) {
+        return (T) getSession().load(getClz(), id);
+    }
+
+    @Override
+    public T get(Serializable id) {
+        return (T) getSession().get(getClz(), id);
+    }
+
 
     protected Class<?> getClz() {
         return ((Class<?>)

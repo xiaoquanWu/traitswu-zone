@@ -13,6 +13,4 @@ public interface ArticleDao extends BaseDao<Article> {
 
     List<Article> list(String groupName);
 
-    Article getById(Integer id);
-
 }

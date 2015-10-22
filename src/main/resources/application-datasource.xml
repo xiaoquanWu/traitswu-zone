@@ -50,8 +50,11 @@
                 <value>hb/User.hbm.xml</value>
             </list>
         </property>
+        <property name="entityInterceptor" ref="domainInterceptor"/>
 
     </bean>
+
+    <bean id="domainInterceptor" class="com.traitswu.zone.interceptor.DomainInterceptor"></bean>
 
     <bean id="txManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">

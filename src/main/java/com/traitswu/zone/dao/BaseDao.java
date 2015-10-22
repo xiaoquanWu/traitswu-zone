@@ -1,5 +1,6 @@
 package com.traitswu.zone.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -16,6 +17,10 @@ public interface BaseDao<T> {
     void delete(Integer id);
 
     List<T> list();
+
+    T load(Serializable id);
+
+    T get(Serializable id);
 
 
 }

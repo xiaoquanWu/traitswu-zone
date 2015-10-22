@@ -42,13 +42,25 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public void update(Article article) {
+    }
+
+    @Override
+    public void updateTitle(Integer id, String title) {
+        Article article = articleDao.load(id);
+        article.setTitle(title);
+        articleDao.update(article);
+    }
+
+
+    @Override
     public void delete(Integer id) {
         articleDao.delete(id);
     }
 
     @Override
     public Article getArticle(Integer id, boolean loadComments) {
-        Article article = articleDao.getById(id);
+        Article article = articleDao.get(id);
         if (loadComments) {
             Hibernate.initialize(article.getComments());
         }

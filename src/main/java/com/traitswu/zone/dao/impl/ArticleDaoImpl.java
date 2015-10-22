@@ -36,8 +36,4 @@ public class ArticleDaoImpl extends BaseDaoImpl<Article> implements ArticleDao {
         return (List<Article>)query.list();
     }
 
-    @Override
-    public Article getById(Integer id) {
-        return (Article) getSession().get(getClz(), id);
-    }
 }

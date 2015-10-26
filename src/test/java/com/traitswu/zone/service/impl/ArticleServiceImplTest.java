@@ -60,6 +60,7 @@ public class ArticleServiceImplTest extends TestSupport {
         Article article = articleService.getArticle(1, true);
         System.out.println(article.getTitle());
         System.out.println(article.getComments());
+
     }
 
     @Test
